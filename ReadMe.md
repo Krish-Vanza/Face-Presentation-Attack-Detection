@@ -3,7 +3,7 @@
 ## A guide to the project, results, and limitations
 
 
-## 1. The assignment
+## 1. The Problem
 
 A face authentication camera should accept a genuine, live person and reject an image presented to fool it. The attack could be a printed photograph, a video replay on a phone or tablet, a cut-out photo, a mask, or an artificial image. This kind of attack is called a **presentation attack**. A system that checks whether a face is live or spoofed is called a **presentation attack detector**, usually shortened to **PAD**.
 
@@ -15,7 +15,7 @@ This project implements a small image-based PAD model and completes a clean and 
 
 Face recognition asks **who is this person?** PAD asks **does this image appear to show a live person, or a presentation attack?** This project only predicts one of two labels: Live or Spoof. It does not identify a person, verify an identity, or make an access-control decision by itself.
 
-## 2. What the main terms mean
+## 2. What is the vocabulary used
 
 - **Live:** a genuine face image labelled as coming from a live person.
 - **Spoof:** an image labelled as an attack or artificial presentation.
@@ -25,9 +25,9 @@ Face recognition asks **who is this person?** PAD asks **does this image appear 
 - **Adversarial example:** an input changed using the model's gradients to make its prediction less reliable. A small numeric change can still alter the model's decision.
 - **Checkpoint:** a saved copy of model weights from one training epoch. This experiment selected the checkpoint with the best OULU validation balanced accuracy.
 
-## 3. Datasets and what was actually available
+## 3. Datasets 
 
-The assignment's preferred protocol could not be followed exactly because the local Replay-Mobile videos did not include labels that identify which clips are live and which are spoof. Without ground-truth labels, accuracy or a confusion matrix cannot be computed honestly. The experiment therefore used a subject-separated OULU subset for scored validation and clearly treats Replay-Mobile as unavailable for numeric scoring.
+The experiment used a subject-separated OULU subset for scored validation and clearly treats Replay-Mobile as unavailable for numeric scoring.
 
 | Dataset | Available labelled data | Role in this experiment |
 |---|---:|---|
