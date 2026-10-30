@@ -1,0 +1,43 @@
+<mxfile host="app.diagrams.net" agent="Codex">
+  <diagram id="assignment39-flow" name="Notebook Flow">
+    <mxGraphModel dx="1689" dy="921" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1800" pageHeight="720" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="data" parent="1" style="rounded=1;arcSize=18;whiteSpace=wrap;html=1;fillColor=#EAF3FF;strokeColor=#5B8DEF;strokeWidth=2;fontColor=#24364B;fontSize=16;align=center;verticalAlign=middle;spacing=18;shadow=1;" value="&lt;b&gt;&lt;font color=&quot;#5B8DEF&quot;&gt;01  DATA&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;OULU-NPU&lt;/b&gt;&lt;br&gt;1,701 labeled images&lt;br&gt;1,361 train · 340 check&lt;br&gt;&lt;br&gt;&lt;b&gt;CASIA + CelebA&lt;/b&gt;&lt;br&gt;Final tests&lt;br&gt;&lt;br&gt;Replay videos had no labels" vertex="1">
+          <mxGeometry height="405" width="245" x="45" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="prepare" parent="1" style="rounded=1;arcSize=18;whiteSpace=wrap;html=1;fillColor=#E8F7F1;strokeColor=#42A88A;strokeWidth=2;fontColor=#24364B;fontSize=16;align=center;verticalAlign=middle;spacing=18;shadow=1;" value="&lt;b&gt;&lt;font color=&quot;#42A88A&quot;&gt;02  PREPARE&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;Every image becomes&lt;br&gt;&lt;b&gt;128 × 128&lt;/b&gt;&lt;br&gt;&lt;br&gt;Color is kept; pixel values&lt;br&gt;are scaled for the model.&lt;br&gt;&lt;br&gt;Small variations help&lt;br&gt;during learning." vertex="1">
+          <mxGeometry height="405" width="245" x="325" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="cnn" parent="1" style="rounded=1;arcSize=18;whiteSpace=wrap;html=1;fillColor=#F1ECFA;strokeColor=#9275C5;strokeWidth=2;fontColor=#24364B;fontSize=16;align=center;verticalAlign=middle;spacing=18;shadow=1;" value="&lt;b&gt;&lt;font color=&quot;#9275C5&quot;&gt;03  CNN&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;A small image model&lt;br&gt;learns useful patterns&lt;br&gt;&lt;br&gt;&lt;b&gt;LIVE&lt;/b&gt; or &lt;b&gt;SPOOF&lt;/b&gt;&lt;br&gt;&lt;br&gt;Designed to run on&lt;br&gt;a modest graphics card." vertex="1">
+          <mxGeometry height="405" width="245" x="605" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="train" parent="1" style="rounded=1;arcSize=18;whiteSpace=wrap;html=1;fillColor=#FFF4E5;strokeColor=#E7A23B;strokeWidth=2;fontColor=#24364B;fontSize=16;align=center;verticalAlign=middle;spacing=18;shadow=1;" value="&lt;b&gt;&lt;font color=&quot;#E7A23B&quot;&gt;04  TRAIN&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;Learns from OULU images&lt;br&gt;&lt;br&gt;20 short rounds&lt;br&gt;&lt;br&gt;The best score on the&lt;br&gt;held-out people chooses&lt;br&gt;the saved model." vertex="1">
+          <mxGeometry height="405" width="245" x="885" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="test" parent="1" style="rounded=1;arcSize=18;whiteSpace=wrap;html=1;fillColor=#E8F6FA;strokeColor=#4AA6B8;strokeWidth=2;fontColor=#24364B;fontSize=16;align=center;verticalAlign=middle;spacing=18;shadow=1;" value="&lt;b&gt;&lt;font color=&quot;#4AA6B8&quot;&gt;05  TEST&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;Check unseen OULU faces&lt;br&gt;&lt;br&gt;Then test CASIA and CelebA&lt;br&gt;&lt;br&gt;Compare normal images&lt;br&gt;with slightly changed ones." vertex="1">
+          <mxGeometry height="405" width="245" x="1165" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="results" parent="1" style="rounded=1;arcSize=18;whiteSpace=wrap;html=1;fillColor=#FCECF0;strokeColor=#D8758B;strokeWidth=2;fontColor=#24364B;fontSize=16;align=center;verticalAlign=middle;spacing=18;shadow=1;" value="&lt;b&gt;&lt;font color=&quot;#D8758B&quot;&gt;06  RESULTS&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;OULU check&lt;/b&gt;  98.8%&lt;br&gt;&lt;br&gt;&lt;b&gt;CASIA&lt;/b&gt;  72.5%&lt;br&gt;&lt;b&gt;CelebA&lt;/b&gt;  54.5%&lt;br&gt;&lt;br&gt;Small image changes&lt;br&gt;lowered scores further." vertex="1">
+          <mxGeometry height="405" width="245" x="1445" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="flow1" edge="1" parent="1" source="data" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#91A4B7;strokeWidth=3;endArrow=block;endFill=1;" target="prepare" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow2" edge="1" parent="1" source="prepare" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#91A4B7;strokeWidth=3;endArrow=block;endFill=1;" target="cnn" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow3" edge="1" parent="1" source="cnn" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#91A4B7;strokeWidth=3;endArrow=block;endFill=1;" target="train" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow4" edge="1" parent="1" source="train" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#91A4B7;strokeWidth=3;endArrow=block;endFill=1;" target="test" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow5" edge="1" parent="1" source="test" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#91A4B7;strokeWidth=3;endArrow=block;endFill=1;" target="results" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
