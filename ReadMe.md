@@ -1,6 +1,6 @@
 # Face Presentation Attack Detection
 
-## A beginner's guide to the project, results, and limitations
+## A guide to the project, results, and limitations
 
 
 ## 1. The assignment
